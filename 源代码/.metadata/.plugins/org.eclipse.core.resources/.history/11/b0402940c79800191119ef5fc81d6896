@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+    body{
+		height: 800px;
+		margin: 0px;
+		padding: 0px;
+	}
+	.content{
+		font-size: 20px;
+	}
+	#a{
+		left: -270px;
+	}
+	#b{
+		top: 10px;
+	}
+	#c{
+		left: 400px;
+	}
+	#c ul li{
+		list-style: none;
+		font-size: 20px;
+	}
+	a{
+		text-decoration: none;
+		color: black;	
+	}
+	a:hover{
+		text-decoration: none;
+		color: red;
+	}
+	ul li{
+		list-style: none;
+	}
+	.col-md-4 ul li{			
+		float: left;
+		padding: 5px 10px;
+		line-height: 70px;
+	}
+	.tt{
+		margin:140px auto;
+	}
+	table tr{
+		width:100%;
+	}
+	td{
+		font-size: 20px;
+		text-align: center;
+	}
+	.ad{
+		margin: 20px 0 0 0;
+		width:100%;
+	}
+	.t a{
+		color: grey;
+		font-size: 20px;
+		margin: 5px 20px;
+	}
+	.t a:hover{
+		color: red;
+	}
+	.bq div{
+		color: grey;
+		font-size: 12px;
+		margin: 5px;
+	}	

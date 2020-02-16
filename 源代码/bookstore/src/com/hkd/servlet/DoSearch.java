@@ -1,0 +1,87 @@
+package com.hkd.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.hkd.entity.Product;
+import com.hkd.serviceImpl.SearchServiceImpl;
+
+/**
+ * Servlet implementation class DoSearch
+ */
+@WebServlet("/DoSearch")
+public class DoSearch extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DoSearch() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		HttpSession session=request.getSession();
+		
+		String desc=null;
+		if(request.getParameter("desc")!=null){
+			desc=request.getParameter("desc");
+			session.setAttribute("desc",desc);
+		}
+		desc=(String)session.getAttribute("desc");
+		
+		SearchServiceImpl ssi=new SearchServiceImpl();
+		int count=ssi.getCount(desc);
+		int pageSize=3;
+		int pageNo1=1;
+		int pageSum=(int)(Math.ceil(count/pageSize));
+		session.setAttribute("pageSum",pageSum);
+		
+		if(session.getAttribute("pageNo1")!=null){
+			pageNo1=(Integer)session.getAttribute("pageNo1");
+		}
+		
+		String flag=request.getParameter("flag");
+		if(flag!=null){
+			if("up".equals(flag)){			
+				if(pageNo1==pageSum){
+					pageNo1=1;
+				}
+				pageNo1++;
+			}else if("down".equals(flag)){
+				if(pageNo1==1){
+					pageNo1=pageSum+1;
+				}
+				pageNo1--;
+			}else{
+				pageNo1=Integer.parseInt(flag);
+			}
+			session.setAttribute("pageNo1",pageNo1);
+		}
+		ArrayList<Product> list=ssi.getSearch(desc,pageNo1,pageSize);
+		
+		
+		session.setAttribute("plist1", list);
+		
+		response.sendRedirect("search.jsp");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

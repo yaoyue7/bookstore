@@ -1,0 +1,9 @@
+package com.hkd.service;
+
+import java.util.ArrayList;
+
+import com.hkd.entity.ProItInven;
+
+public interface ProItInvenService {
+	public ArrayList<ProItInven> getProItInven(String itemid);
+}

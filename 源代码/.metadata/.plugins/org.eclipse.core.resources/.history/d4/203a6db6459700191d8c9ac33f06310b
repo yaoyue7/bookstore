@@ -1,0 +1,73 @@
+package com.hkd.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.hkd.entity.Product;
+import com.hkd.serviceImpl.SearchServiceImpl;
+
+/**
+ * Servlet implementation class DoSearch
+ */
+@WebServlet("/DoSearch")
+public class DoSearch extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DoSearch() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		HttpSession session=request.getSession();
+		
+		String desc=request.getParameter("desc");
+		SearchServiceImpl ssi=new SearchServiceImpl();
+		int count=ssi.getCount(desc);
+		int pageSize=3;
+		int pageNo=1;
+		int pageSum=(int)(Math.ceil(count/pageSize));
+		
+		String flag=request.getParameter("flag");
+		if(flag!=null) {
+			if("down".equals(flag)) {
+				if(pageNo==0) {
+					pageNo=pageSum+1;
+				}else {
+					pageNo--;
+				}
+			}if("up".equals(flag)) {
+				if(pageNo==pageSum) {
+					pageNo=1;
+				}else {
+					pageNo++;
+				}
+			}
+		}
+		ArrayList<Product> list=ssi.getSearch(desc,pageNo,pageSize);
+		
+		session.setAttribute("list", list);
+		session.setAttribute("pageNo", pageNo);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

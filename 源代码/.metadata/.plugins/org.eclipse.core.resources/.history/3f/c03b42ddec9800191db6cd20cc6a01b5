@@ -1,0 +1,16 @@
+package com.hkd.serviceImpl;
+
+import java.util.ArrayList;
+
+import com.hkd.entity.ProItInven;
+import com.hkd.service.ProItInvenService;
+
+public class ProItInvenServiceImpl implements ProItInvenService {
+
+	@Override
+	public ArrayList<ProItInven> getProItInven(String itemid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

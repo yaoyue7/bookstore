@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="com.hkd.serviceImpl.SearchServiceImpl"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.ResultSet"/>
+<fullyQualifiedTypeName name="com.hkd.daoImpl.ItemDaoImpl"/>
+<fullyQualifiedTypeName name="com.hkd.serviceImpl.ItemServiceImpl"/>
+<fullyQualifiedTypeName name="com.hkd.entity.Item"/>
+<fullyQualifiedTypeName name="com.hkd.serviceImpl.ProductServiceImpl"/>
+<fullyQualifiedTypeName name="com.hkd.entity.Product"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.hkd.daoImpl.InventoryDaoImpl"/>
+<fullyQualifiedTypeName name="com.hkd.serviceImpl.InventoryServiceImpl"/>
+<fullyQualifiedTypeName name="com.hkd.entity.Inventory"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="com.hkd.daoImpl.ProItInvenDaoImpl"/>
+<fullyQualifiedTypeName name="com.hkd.serviceImpl.ProItInvenServiceImpl"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.hkd.entity.ProItInven"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,16 @@
+package com.hkd.daoImpl;
+
+import java.util.ArrayList;
+
+import com.hkd.dao.ProItInvenDao;
+import com.hkd.util.DataBase;
+
+public class ProItInvenDaoImpl extends DataBase implements ProItInvenDao {
+
+	@Override
+	public ArrayList<ProItInvenDao> getProItInven(String itemid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

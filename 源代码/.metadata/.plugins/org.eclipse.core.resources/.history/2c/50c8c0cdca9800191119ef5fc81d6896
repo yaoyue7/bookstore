@@ -1,0 +1,5 @@
+package com.hkd.service;
+
+public interface InventoryService {
+
+}

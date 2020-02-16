@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+	.content{
+		font-size: 20px;
+		width: 100%;	
+	}
+	#a{
+		left: -270px;
+	}
+	#b{
+		top: 10px;
+	}
+	#c{
+		left: 400px;
+	}
+	#c ul li{
+		list-style: none;
+		font-size: 20px;
+	}
+	a{
+		text-decoration: none;
+		color: black;	
+	}
+	a:hover{
+		text-decoration: none;
+		color: red;
+	}
+	.a{
+		clear: both;
+	}
+	ul li{
+		list-style: none;
+	}
+	.col-md-4 ul li{			
+		float: left;
+		padding: 5px 10px;
+		line-height: 70px;
+	}
+	.tuijian {
+		width: 450px;
+		font-size: 30px;
+	}
+	.sep{
+		margin: 10px;
+	}
+	.varity{
+		font-size: 16px;
+		color: gray;
+	}
+	.book{
+		width: 100px;
+		font-size: 20px;			
+	}
+	.author{	
+		margin: 6px;
+		font-size: 16px;
+		left: 330px;
+		color: grey;
+		position:absolute;
+	}
+	hr{
+		position: relative;
+	}
+	.ad{
+		margin-top: 20px;
+		width:100%;
+	}
+	.t a{
+		color: grey;
+		font-size: 20px;
+		margin: 5px 20px;
+	}
+	.t a:hover{
+		color: red;
+	}
+	.bq div{
+		color: grey;
+		font-size: 12px;
+		margin: 5px;
+	}			

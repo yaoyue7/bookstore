@@ -1,0 +1,5 @@
+package com.hkd.dao;
+
+public class ProItInvenDao {
+	public ArrayList<ProItInvenDao> getProItInven(String itemid);
+}

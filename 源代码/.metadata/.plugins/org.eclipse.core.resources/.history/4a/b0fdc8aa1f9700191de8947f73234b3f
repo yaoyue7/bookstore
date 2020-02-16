@@ -1,0 +1,38 @@
+package com.hkd.test;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+import com.hkd.entity.Category;
+import com.hkd.entity.Product;
+import com.hkd.serviceImpl.CategoryServiceImpl;
+import com.hkd.serviceImpl.ProductServiceImpl;
+import com.hkd.serviceImpl.SearchServiceImpl;
+
+public class test {
+
+	@Test
+	public void test1() {
+		ProductServiceImpl pdi=new ProductServiceImpl();
+		ArrayList<Product> list=pdi.getProduct("3",1,5);
+		for (Product p : list) {
+			System.out.println(p.getName());
+		}
+		
+		
+		CategoryServiceImpl csi=new CategoryServiceImpl();
+		ArrayList<Category> clist=csi.getCategory();
+		for (Category category : clist) {
+			System.out.println(category.getName());
+		}
+		
+		SearchServiceImpl ssi=new SearchServiceImpl();
+		System.out.println(ssi.getCount("ÀøÖ¾"));
+		ArrayList<Product> list1=ssi.getSearch("ÀøÖ¾", 1, 3);
+		for (Product p1 : list1) {
+			System.out.println(p1.getName());
+		}
+	}
+
+}

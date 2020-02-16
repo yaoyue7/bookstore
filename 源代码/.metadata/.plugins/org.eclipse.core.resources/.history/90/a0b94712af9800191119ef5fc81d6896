@@ -1,0 +1,16 @@
+package com.hkd.serviceImpl;
+
+import java.util.ArrayList;
+
+import com.hkd.entity.Item;
+import com.hkd.service.ItemService;
+
+public class ItemServiceImpl implements ItemService {
+
+	@Override
+	public ArrayList<Item> getItem(String productid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,104 @@
+package com.hkd.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.hkd.entity.Signon;
+import com.hkd.serviceImpl.AffairServiceImpl;
+import com.hkd.serviceImpl.SignonServiceImpl;
+
+/**
+ * Servlet implementation class DoRegister
+ */
+@WebServlet("/DoRegister")
+public class DoRegister extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DoRegister() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.doPost(request, response);;
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		HttpSession session=request.getSession();
+		
+		SignonServiceImpl sdi=new SignonServiceImpl();
+		Signon s=new Signon();
+		
+		String username=request.getParameter("username");
+		String password1=request.getParameter("password1");
+		String password2=request.getParameter("password2");
+		
+		String userid;
+		if(session.getAttribute("userid")!=null){
+			userid=session.getAttribute("userid");
+		}
+		String email=request.getParameter("email");
+		String firstname=request.getParameter("firstname");
+		String lastname=request.getParameter("lastname");
+		String status=request.getParameter("status");
+		String addr1=request.getParameter("addr1");
+		String addr2=request.getParameter("addr2");
+		String city=request.getParameter("city");
+		String state=request.getParameter("state");
+		String zip=request.getParameter("zip");
+		String country=request.getParameter("country");
+		String phone=request.getParameter("phone");
+		
+		
+		ArrayList<Signon> list1=sdi.getSignon();
+		String flag=null;
+		
+		for(int i=0;i<list1.size();i++){
+			if(password1.equals(password2)){
+				s.setUsername(username);
+				s.setPassword(password1);
+				
+				if(!username.equals(list1.get(i))){
+					if(s!=null){					
+						AffairServiceImpl asi=new AffairServiceImpl();
+						userid++;
+						asi.getAffair(username, password1, userid, email, firstname, status, lastname, addr1, addr2, city, state, zip, country, phone);					
+						flag="1";
+					}
+				}
+				
+				else{					
+					flag="2";					
+				}
+			}else{
+				flag="0";				
+			}			
+		}
+		
+		session.setAttribute("flag",flag);
+		
+		if("1".equals(flag)||"2".equals(flag)) {
+			response.sendRedirect("login.jsp");
+		}else {
+			response.sendRedirect("register.jsp");	
+		}
+	}
+
+}

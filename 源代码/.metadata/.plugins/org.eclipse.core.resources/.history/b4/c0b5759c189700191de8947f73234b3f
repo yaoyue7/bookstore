@@ -1,0 +1,173 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>用户注册</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/register.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<script type="text/javascript">
+	function check(){
+		if("0".equals(${flag})){
+			alert("密码检验错误，请重新输入！")
+		}
+		if("1".equals(${flag})){
+			alert("注册成功，请登录！")
+		}
+		if("2".equals(${flag})){
+			alert("用户名已经存在，请直接登录！")
+		}
+	}
+</script>
+
+<body>
+	<%@ include file="header.jsp" %>
+	<div class="register">
+		<form action="DoRegister" method="post">
+			<table>
+				<thead>
+					<tr>
+						<td colspan="2" align="center"><h2>用户信息</h2></td>
+					</tr>
+				</thead>
+				<tbody>
+		  			<tr>	  				
+		    			<td><label>用户名</label></td>
+		    			<td><input type="text" class="form-control" placeholder="请输入用户名" name="username" size="20" /></td>
+		 			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>密码</label>
+		    			</td>
+		    			<td>
+		    				<input type="password" class="form-control" placeholder="请输入密码" name="password1" size="20" />
+		    			</td>
+		  			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>确认密码</label>
+		    			</td>
+		    			<td>
+		    				<input type="password" class="form-control" placeholder="请再次输入密码" name="password2" size="20" />
+		    			</td>
+		    		</tr>
+		    	</tbody>		  						
+			</table>
+			
+			<table>
+				<thead>
+					<tr>
+						<td colspan="2" align="center"><h2>账户信息</h2></td>
+					</tr>
+				</thead>
+				<tbody>
+		  			<tr>
+		  				<td>
+		    				<label>电子邮箱</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您的电子邮箱" name="email" size="20" />
+		    			</td>
+		  			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>姓</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您的姓氏" name="firstname" size="20" />
+		    			</td>
+		    		</tr>
+		    		<tr>	  				
+		    			<td>
+		    				<label>名</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您的名字" name="lastname" size="20" />
+		    			</td>
+		 			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>身份</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您的身份" name="status" size="20" />
+		    			</td>
+		  			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>地址1</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您的第1个地址" name="addr1" size="20" />
+		    			</td>
+		    		</tr>
+		    		<tr>	  				
+		    			<td>
+		    				<label>地址2</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您的第2个地址" name="addr2" size="20" />
+		    			</td>
+		 			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>城市</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您所在的城市" name="city" size="20" />
+		    			</td>
+		  			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>省份</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您所在的省份" name="state" size="20" />
+		    			</td>
+		    		</tr>
+		    		<tr>
+		    			<td>
+		    				<label>邮编</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您所在地区的邮编" name="zip" size="20" />
+		    			</td>
+		 			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>国家</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您所在的国家" name="country" size="20" />
+		    			</td>
+		  			</tr>
+		  			<tr>
+		  				<td>
+		    				<label>电话</label>
+		    			</td>
+		    			<td>
+		    				<input type="text" class="form-control" placeholder="请输入您的电话号码" name="phone" size="20" />
+		    			</td>
+		    		</tr>
+		    	</tbody>		  						
+			</table>
+			<div class="send">
+				<input type="submit" class="btn btn-default" value="提交" onclick="check()">
+				<input type="reset" class="btn btn-default" value="重置">
+			</div>		
+		</form>
+	</div>
+	<%@include file="footer.jsp" %>
+</body>
+</html>

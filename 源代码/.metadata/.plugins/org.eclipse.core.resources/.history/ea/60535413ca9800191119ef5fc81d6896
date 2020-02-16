@@ -1,0 +1,15 @@
+package com.hkd.daoImpl;
+
+import com.hkd.dao.InventoryDao;
+import com.hkd.entity.Inventory;
+import com.hkd.util.DataBase;
+
+public class InventoryDaoImpl extends DataBase implements InventoryDao {
+
+	@Override
+	public Inventory getInventory(String itemid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

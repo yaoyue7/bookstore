@@ -1,0 +1,32 @@
+package com.hkd.daoImpl;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.hkd.dao.ItemDao;
+import com.hkd.entity.Item;
+import com.hkd.util.DataBase;
+
+
+public class ItemDaoImpl extends DataBase implements ItemDao {
+
+	@Override
+	public Item getItem(String productid) {
+		String sql="select itemid,productid,listprice,unitcost,name from item,product where productid=? and product.productid=item.productid";
+		String[] p={productid};
+		ResultSet rs=this.getResult(sql,p);
+		Item i=new Item();
+		try {
+			while(rs.next()){			
+				i.setItemid(rs.getString("itemid"));
+				i.setProductid(rs.getString("productid"));
+				i.setListprice(rs.getFloat("listprice"));
+				i.setUnitcost(rs.getFloat("unitcost"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return i;
+	}
+}

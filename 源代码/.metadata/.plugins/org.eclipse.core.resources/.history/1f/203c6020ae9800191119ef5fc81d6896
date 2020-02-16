@@ -1,0 +1,17 @@
+package com.hkd.daoImpl;
+
+import java.util.ArrayList;
+
+import com.hkd.dao.ItemDao;
+import com.hkd.entity.Item;
+import com.hkd.util.DataBase;
+
+public class ItemDaoImpl extends DataBase implements ItemDao {
+
+	@Override
+	public ArrayList<Item> getItem(String productid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

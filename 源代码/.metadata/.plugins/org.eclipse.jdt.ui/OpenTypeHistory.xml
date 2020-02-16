@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=bookstore/src&lt;com.hkd.dao{ItemDao.java[ItemDao" modifiers="513" timestamp="1561624028000"/>
+<typeInfo handle="=bookstore/src&lt;com.hkd.service{ItemService.java[ItemService" modifiers="513" timestamp="1561624032000"/>
+<typeInfo handle="=bookstore/src&lt;com.hkd.entity{Inventory.java[Inventory" modifiers="1" timestamp="1561695888000"/>
+<typeInfo handle="=bookstore/src&lt;com.hkd.dao{InventoryDao.java[InventoryDao" modifiers="513" timestamp="1561632748000"/>
+<typeInfo handle="=bookstore/src&lt;com.hkd.util{DataBase.java[DataBase" modifiers="1" timestamp="1561960816000"/>
+<typeInfo handle="=bookstore/src&lt;com.hkd.dao{ProItInvenDao.java[ProItInvenDao" modifiers="513" timestamp="1561685324000"/>
+<typeInfo handle="=bookstore/src&lt;com.hkd.service{ProItInvenService.java[ProItInvenService" modifiers="513" timestamp="1561685736000"/>
+</typeInfoHistroy>

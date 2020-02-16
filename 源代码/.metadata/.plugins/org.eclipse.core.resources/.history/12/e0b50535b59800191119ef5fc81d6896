@@ -1,0 +1,9 @@
+package com.hkd.service;
+
+import java.util.ArrayList;
+
+import com.hkd.entity.Item;
+
+public interface ItemService {
+	public ArrayList<Item> getItem(String productid);
+}

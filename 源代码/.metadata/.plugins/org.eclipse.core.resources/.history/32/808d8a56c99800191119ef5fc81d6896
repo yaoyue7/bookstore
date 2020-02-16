@@ -1,0 +1,5 @@
+package com.hkd.entity;
+
+public class Inventory {
+
+}
